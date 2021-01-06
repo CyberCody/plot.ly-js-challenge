@@ -1,6 +1,12 @@
 
+//https://cybercody.github.io/plot.ly-js-challenge/data/samples.json
+
+var getUrl = window.location;
+var dataFile = `${getUrl.protocol}//${getUrl.host}/${getUrl.pathname.split('/')[1]}/data/samples.json`;
+
+
 var testSubID = d3.select("#selDataset")
-d3.json("../data/samples.json").then(function(data) {
+d3.json(dataFile).then(function(data) {
 
     var subjectNames = data.names
     subjectNames.forEach(id => {
@@ -12,7 +18,7 @@ optionChanged(subjectNames[0])
     // Chart with a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
     function optionChanged(userInput) {
         
-      d3.json("../data/samples.json").then(function(data) {
+      d3.json(dataFile).then(function(data) {
         var demoData = data.metadata;
         // console.log(demoData);
         var demoFilter = demoData.filter(mid => mid.id == userInput)
