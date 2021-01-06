@@ -2,7 +2,8 @@
 //https://cybercody.github.io/plot.ly-js-challenge/data/samples.json
 
 var getUrl = window.location;
-var dataFile = `${getUrl.protocol}//${getUrl.host}/${getUrl.pathname.split('/')[1]}/data/samples.json`;
+var dataFile = `${getUrl.protocol}//${getUrl.host}${getUrl.pathname}/data/samples.json`;
+console.log(getUrl.pathname)
 
 
 var testSubID = d3.select("#selDataset")
